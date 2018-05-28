@@ -1,17 +1,108 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>KML</title>
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index demo</title> 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
-  </head>
-  <body>
-    <div id="map" class="map"></div>
-    <div id="info">&nbsp;</div>
-    <script>
-      var m_center = [8.928646,44.408927];
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+        <img id = "logo" src="assets/img/LogoPolytechLab.png"  alt="logo" />
+		<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+        </nav>
+
+	   <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i>LOAD<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Load hazard map</a>
+                            </li>
+                            <li>
+                                <a href="#">Load/update Building</a>
+                            </li>
+                            <li>
+                                <a href="#">Load/update network<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Electricity network</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Transportation network</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Communication network</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Water supply</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Other network</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Load critical infrastructure & social event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class=" waves-effect waves-dark" href="#"><i class="fa fa-dashboard"></i>Social and time component</a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-desktop"></i>Compute ORI</a>
+                    </li>
+					<li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>Export ORI</a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i>Parameterize ORI computation</a>
+                    </li>                    
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-table"></i>Scale ORI</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+      
+		<div id="page-wrapper">
+            <div id="map" class="map"></div>
+            <div id="info">&nbsp;</div>
+		</div>
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+        <script type="text/javascript">
+           var m_center = [8.928646,44.408927];
       m_center = ol.proj.transform(m_center,'EPSG:4326','EPSG:3857');
       var projection = ol.proj.get('EPSG:3857');
 
@@ -35,36 +126,22 @@
         })
       });
 
-      // var displayFeatureInfo = function(pixel) {
-      //   var features = [];
-      //   map.forEachFeatureAtPixel(pixel, function(feature) {
-      //     features.push(feature);
-      //   });
-      //   if (features.length > 0) {
-      //     var info = [];
-      //     var i, ii;
-      //     for (i = 0, ii = features.length; i < ii; ++i) {
-      //       info.push(features[i].get('name'));
-      //     }
-      //     document.getElementById('info').innerHTML = info.join(', ') || '(unknown)';
-      //     map.getTarget().style.cursor = 'pointer';
-      //   } else {
-      //     document.getElementById('info').innerHTML = '&nbsp;';
-      //     map.getTarget().style.cursor = '';
-      //   }
-      // };
-
-      // map.on('pointermove', function(evt) {
-      //   if (evt.dragging) {
-      //     return;
-      //   }
-      //   var pixel = map.getEventPixel(evt.originalEvent);
-      //   displayFeatureInfo(pixel);
-      // });
-
-      // map.on('click', function(evt) {
-      //   displayFeatureInfo(evt.pixel);
-      // });
     </script>
-  </body>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+	
+	<!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+	
+	<script src="assets/materialize/js/materialize.min.js"></script>
+	
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+	<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script> 
+ 
+
+</body>
+
 </html>

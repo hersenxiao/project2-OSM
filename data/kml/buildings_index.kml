@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<Folder>
+  <name>buildings_index Index</name>
+  <open>1</open>
+  <NetworkLink>
+    <Region>
+      <LatLonAltBox>
+        <north>44.51917592074507700</north>
+        <south>44.37878036879161000</south>
+        <east>9.08183187081798420</east>
+        <west>8.67661382178986960</west>
+        <minAltitude>0</minAltitude>
+        <maxAltitude>0</maxAltitude>
+      </LatLonAltBox>
+      <Lod>
+        <minLodPixels>1024</minLodPixels>
+        <maxLodPixels>-1</maxLodPixels>
+        <minFadeExtent>0</minFadeExtent>
+        <maxFadeExtent>0</maxFadeExtent>
+      </Lod>
+    </Region>
+    <name>buildings</name>
+    <Link>
+      <href>buildings.kml</href>
+    </Link>
+  </NetworkLink>
+</Folder>
+  <!-- Begin Style Definitions -->
+  <Style id="area1">
+    <LineStyle>
+      <color>FF000000</color>
+      <width>1</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>7F000000</color>
+      <fill>0</fill>
+      <outline>1</outline>
+    </PolyStyle>
+    <BalloonStyle><text><![CDATA[$[description]]]></text></BalloonStyle>
+  </Style>
+  <Folder>
+    <name>Area Features</name>
+    <description>Area Features</description>
+    <Placemark>
+      <description><![CDATA[<a href="buildings.kml">Click Here to Open Tile</a>]]></description>
+      <name>buildings</name>
+      <styleUrl>#area1</styleUrl>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              8.6766138218,44.5187171632,0
+              8.6773858440,44.3787803688,0
+              9.0816375272,44.3792079968,0
+              9.0818318708,44.5191468690,0
+              8.6766138218,44.5187171632,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Folder>
+</Document>
+</kml>

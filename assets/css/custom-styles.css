@@ -17,7 +17,7 @@ body {
 
 #legend{
   font-size: 15px;
-  width: 50px;
+  width: 70px;
   height: 120px;
   z-index: 1;
   position: absolute;
@@ -32,12 +32,18 @@ body {
   z-index: 0;
 }
 
+#line_box{
+  margin-top: 7px;
+}
+
 .rectangle{
   display: inline;
   width: 20px;
   height: 20px;
   display: block;
   float: left;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #red{

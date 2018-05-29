@@ -36,7 +36,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i>LOAD<span class="fa arrow"></span></a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i>Load<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Load hazard map</a>
@@ -94,14 +94,16 @@
 		<div id="page-wrapper">
             <div id="map" class="map">
             	<div id="legend">
+                    <div id="line_box">
             		<div class="line">
             			<div id="red" class="rectangle"></div>
-            			<div>0-1</div>
+            			<div class="number_line">1-2</div>
             		</div>
-            		<div class="line"><div id="orange" class="rectangle"></div><div>1-2</div></div>
-            		<div class="line"><div id="yellow" class="rectangle"></div><div>2-3</div></div>
-            		<div class="line"><div id="light_yellow" class="rectangle"></div><div>3-4</div></div>
-            		<div class="line"><div id="green" class="rectangle"></div><div>4-5</div></div>         		
+            		<div class="line"><div id="orange" class="rectangle"></div><div class="number_line">2-3</div></div>
+            		<div class="line"><div id="yellow" class="rectangle"></div><div class="number_line">3-4</div></div>
+            		<div class="line"><div id="light_yellow" class="rectangle"></div><div class="number_line">4-5</div></div>
+            		<div class="line"><div id="green" class="rectangle"></div><div class="number_line">5-6</div></div> 
+                    </div>        		
             	</div>
             </div>
             <div id="info">&nbsp;</div>

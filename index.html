@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index demo</title> 
+    <title>ORI Demo</title> 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -92,7 +92,18 @@
         <!-- /. NAV SIDE  -->
       
 		<div id="page-wrapper">
-            <div id="map" class="map"></div>
+            <div id="map" class="map">
+            	<div id="legend">
+            		<div class="line">
+            			<div id="red" class="rectangle"></div>
+            			<div>0-1</div>
+            		</div>
+            		<div class="line"><div id="orange" class="rectangle"></div><div>1-2</div></div>
+            		<div class="line"><div id="yellow" class="rectangle"></div><div>2-3</div></div>
+            		<div class="line"><div id="light_yellow" class="rectangle"></div><div>3-4</div></div>
+            		<div class="line"><div id="green" class="rectangle"></div><div>4-5</div></div>         		
+            	</div>
+            </div>
             <div id="info">&nbsp;</div>
 		</div>
         </div>

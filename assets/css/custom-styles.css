@@ -15,6 +15,51 @@ body {
     height: 100%;
 }
 
+#legend{
+  font-size: 15px;
+  width: 50px;
+  height: 120px;
+  z-index: 1;
+  position: absolute;
+  right: 10px;
+  bottom: 60px;
+  background: #F0F8FF;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+#map{
+  z-index: 0;
+}
+
+.rectangle{
+  display: inline;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+}
+
+#red{
+  background: red;
+}
+
+#orange{
+  background: orange;
+}
+
+#yellow{
+  background:yellow;
+}
+
+#light_yellow{
+  background:#EEEE00;
+}
+
+#green{
+  background: green;
+}
+
 #logo{
   float: left;
   height: 60px;

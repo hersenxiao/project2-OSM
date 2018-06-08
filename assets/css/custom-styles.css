@@ -15,6 +15,17 @@ body {
     height: 100%;
 }
 
+.modal-body div p{
+  display: inline;
+}
+
+.modal-body div button{
+  float: right;
+}
+.modal-body div input{
+  float: right;
+}
+
 #legend{
   font-size: 15px;
   width: 70px;
@@ -44,6 +55,16 @@ body {
   float: left;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#myModal_file{
+  height: 240px;
+  width: 700px;
+}
+
+#myModal{
+  height: 900px;
+  width: 700px;
 }
 
 #red{

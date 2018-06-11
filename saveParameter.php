@@ -10,15 +10,15 @@
 	$transport_input = $_POST["transport_input"]."\n";
 	$working_input = $_POST["working_input"]."\n";
 
-	file_put_contents("data/userdata/user1parameterValue.csv",$education_input);
-	file_put_contents("data/userdata/parameterValue.csv",$food_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$goverance_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$health_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$housing_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$leisure_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$mixed_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$religion_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$transport_input,FILE_APPEND);
-	file_put_contents("data/userdata/parameterValue.csv",$working_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$education_input);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$food_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$goverance_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$health_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$housing_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$leisure_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$mixed_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$religion_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$transport_input,FILE_APPEND);
+	file_put_contents("data/userdata/user1/parameterValue.csv",$working_input,FILE_APPEND);
 	header("Location: parameter_menu.php");
 ?>

@@ -61,7 +61,9 @@ $data = file("data/userdata/$user/parameterValue.csv");
                 <div><p>Working</p><button>Parametrize dependencies</button><input type="input" id="Working_input" value=<?=$data[9]?> name="working_input"><div class ="range"><input type="range" id="Working_range" min = "1" max = "5" step="0.1" value=<?=$data[9]?> ></div></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                <button type="button" class="btn btn-default" data-dismiss="modal">Back
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Load
                 </button>
                 <button type="submit" class="btn btn-primary">
                     Save

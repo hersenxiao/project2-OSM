@@ -76,14 +76,14 @@
                         <a class=" waves-effect waves-dark" href="#" title = "Social and time component"><i class="fa fa-dashboard"></i>Social and time component</a>
                     </li>
                     <li>
+                        <a href="parameter_menu.php" class="waves-effect waves-dark"  title = "Parameterize ORI computation"><i class="fa fa-qrcode"></i>Parameterize ORI computation</a>
+                    </li> 
+                    <li>
                         <a href="#" class="waves-effect waves-dark" title = "Compute ORI"><i class="fa fa-desktop"></i>Compute ORI</a>
                     </li>
 					<li>
                         <a href="#" class="waves-effect waves-dark"  title = "Export ORI"><i class="fa fa-bar-chart-o"></i>Export ORI</a>
-                    </li>
-                    <li>
-                        <a href="parameter_menu.php" class="waves-effect waves-dark"  title = "Parameterize ORI computation"><i class="fa fa-qrcode"></i>Parameterize ORI computation</a>
-                    </li>                    
+                    </li>                   
                     <li>
                         <a href="#" class="waves-effect waves-dark"  title = "Scale ORI"><i class="fa fa-table"></i>Scale ORI</a>
                     </li>
@@ -118,7 +118,7 @@
     <!-- JS Scripts-->
     <!-- jQuery Js -->
         <script type="text/javascript">
-           var m_center = [8.928646,44.408927];
+           var m_center = [8.9530046,44.401327];
       m_center = ol.proj.transform(m_center,'EPSG:4326','EPSG:3857');
       var projection = ol.proj.get('EPSG:3857');
 
@@ -138,7 +138,7 @@
           // center: [876970.8463461736, 5859807.853963373],
           center:m_center,
           projection: projection,
-          zoom: 13
+          zoom: 16
         })
       });
 
@@ -156,39 +156,6 @@
 	
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script> 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    Parameterize ORI computation
-                </h4>
-            </div>
-            <div class="modal-body">
-                <div><p>Education</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Food</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Governance</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Health</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Housing</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Leisure</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Mixed</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Religion</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Transport</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-                <div><p>Working</p><button>Parametrize dependencies</button><input type="input" name=""><div class ="range"><input type="range" name=""></div></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                    Save
-                </button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
 <div class="modal fade" id="myModal_file" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" >
         <div class="modal-content">

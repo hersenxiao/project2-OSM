@@ -1,107 +1,47 @@
 window.onload = function(){
-	var Education_range = document.getElementById("Education_range");
-	var Food_range = document.getElementById("Food_range");
-	var Governance_range = document.getElementById("Governance_range");
-	var Health_range = document.getElementById("Health_range");
-	var Housing_range = document.getElementById("Housing_range");
-	var Leisure_range = document.getElementById("Leisure_range");
-	var Mixed_range = document.getElementById("Mixed_range");
-	var Religion_range = document.getElementById("Religion_range");
-	var Transport_range = document.getElementById("Transport_range");
-	var Working_range = document.getElementById("Working_range");
+	var inputs = document.getElementsByTagName("input");
+	for(var i = 0; i < inputs.length; i++ ){
+		if(inputs[i].type == "range"){
+			inputs[i].onchange = setInput;
+		}
+	}
 
-	var Education_input = document.getElementById("Education_input");
-	var Food_input = document.getElementById("Food_input");
-	var Governance_input = document.getElementById("Governance_input");
-	var Health_input = document.getElementById("Health_input");
-	var Housing_input = document.getElementById("Housing_input");
-	var Leisure_input = document.getElementById("Leisure_input");
-	var Mixed_input = document.getElementById("Mixed_input");
-	var Religion_input = document.getElementById("Religion_input");
-	var Transport_input = document.getElementById("Transport_input");
-	var Working_input = document.getElementById("Working_input");
+	var input_input = document.querySelectorAll(".input");
+	for(var i = 0; i < input_input.length; i++ ){
+			input_input[i].onchange = setRange;
+	}
 
-	Education_range.onchange = setValueEducation;
-	Food_range.onchange = setValueFood;
-	Governance_range.onchange = setValueGovernance;
-	Health_range.onchange = setValueHealth;
-	Housing_range.onchange = setValueHousing;
-	Leisure_range.onchange = setValueLeisure;
-	Mixed_range.onchange = setValueMixed;
-	Religion_range.onchange = setValueReligion;
-	Transport_range.onchange = setValueTransport;
-	Working_range.onchange = setValueWorking;
-
-	Education_input.onchange = setValueEducationInput;
-	Food_input.onchange = setValueFoodInput;
-	Governance_input.onchange = setValueGovernanceInput;
-	Health_input.onchange = setValueHealthInput;
-	Housing_input.onchange = setValueHousingInput;
-	Leisure_input.onchange = setValueLeisureInput;
-	Mixed_input.onchange = setValueMixedInput;
-	Religion_input.onchange = setValueReligionInput;
-	Transport_input.onchange = setValueTransportInput;
-	Working_input.onchange = setValueWorkingInput;
+	var closeButtons = document.querySelectorAll(".close");
+	for(var i = 0; i < closeButtons.length; i++ ){
+		closeButtons[i].onclick = saveDependencies;
+	}
 }
 
-function setValueEducation(){
-	Education_input.value = Education_range.value;
-}
-function setValueFood(){
-	Food_input.value = Food_range.value;
-}
-function setValueGovernance(){
-	Governance_input.value = Governance_range.value;
-}
-function setValueHealth(){
-	Health_input.value = Health_range.value;
-}
-function setValueHousing(){
-	Housing_input.value = Housing_range.value;
-}
-function setValueLeisure(){
-	Leisure_input.value = Leisure_range.value;
-}
-function setValueMixed(){
-	Mixed_input.value = Mixed_range.value;
-}
-function setValueReligion(){
-	Religion_input.value = Religion_range.value;
-}
-function setValueTransport(){
-	Transport_input.value = Transport_range.value;
-}
-function setValueWorking(){
-	Working_input.value = Working_range.value;
+function setInput(){
+		var range = document.getElementById(this.id);
+		var input_id = this.id.substr(0,this.id.length-5) + "input";
+		var input = document.getElementById(input_id);
+		input.value = range.value;
 }
 
-function setValueEducationInput(){
-	Education_range.value = Education_input.value;
+function setRange(){
+		var input = document.getElementById(this.id);
+		var range_id = this.id.substr(0,this.id.length-5) + "range";
+		var range = document.getElementById(range_id);
+		range.value = input.value;
+		console.log(range_id);
 }
-function setValueFoodInput(){
-	Food_range.value = Food_input.value;
-}
-function setValueGovernanceInput(){
-	Governance_range.value = Governance_input.value;
-}
-function setValueHealthInput(){
-	Health_range.value = Health_input.value;
-}
-function setValueHousingInput(){
-	Housing_range.value = Housing_input.value;
-}
-function setValueLeisureInput(){
-	Leisure_range.value = Leisure_input.value;
-}
-function setValueMixedInput(){
-	Mixed_range.value = Mixed_input.value;
-}
-function setValueReligionInput(){
-	Religion_range.value = Religion_input.value;
-}
-function setValueTransportInput(){
-	Transport_range.value = Transport_input.value;
-}
-function setValueWorkingInput(){
-	Working_range.value = Working_input.value;
+
+function saveDependencies(){
+	var id = this.id;
+	var head = this.id.substr(0,this.id.length-6);
+	var Energy = document.getElementById(head+"_Energy_range").value;
+	var Water = document.getElementById(head+"_Water_range").value;
+	var Communication = document.getElementById(head+"_Communication_range").value;
+	var Transport = document.getElementById(head+"_Transport_range").value;
+	var Special = document.getElementById(head+"_Special_range").value;
+	var result = "," + Energy + "," + Water + "," + Communication + "," + Transport + "," + Special;
+	var hidden = document.getElementById(head+"_hidden") ;
+	hidden.value = result;
+	console.log(hidden.value);
 }

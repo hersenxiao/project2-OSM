@@ -1,6 +1,27 @@
 <?php
 $user = "user1";
-$data = file("data/userdata/$user/parameterValue.csv");
+$datas = file("data/userdata/$user/parameterValue.csv");
+$data;
+$hiddens;
+$titles = array('Education','Food','Governance','Health','Housing','Leisure','Mixed','Religion','Transport','Working');
+
+$subTitles = array('Energy','Water','Communication','Transport','Special');
+
+$title_num = count($titles);
+$subTitle_num = count($subTitles);
+
+for($i= 0; $i < $title_num; $i++){
+    $data[$i] = explode(",", $datas[$i]);
+    $hidden= "";
+    for( $j = 1; $j <= $subTitle_num; $j++ ){
+        $hidden = $hidden.",".$data[$i][$j];
+    }
+    $hiddens[$i] = $hidden;
+}
+
+
+
+
 ?>
 <!DOCTYPE HTML>
 
@@ -8,9 +29,9 @@ $data = file("data/userdata/$user/parameterValue.csv");
 
 <head>
 
-<meta charset="utf-8">
-<script type="text/javascript" src="assets/js/parameter.js"></script>
-<title>Parameter Menu</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="assets/js/parameter.js"></script>
+    <title>Parameter Menu</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -35,42 +56,84 @@ $data = file("data/userdata/$user/parameterValue.csv");
 </head>
 
 <body>   
-        <nav class="navbar navbar-default top-navbar" role="navigation">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
         <img id = "logo" src="assets/img/LogoPolytechLab.png"  alt="logo" />
-        </nav>
+    </nav>
 
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">
-                    Parameterize ORI computation
-                </h4>
-            </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">
+                Parameterize ORI computation
+            </h4>
+        </div>
 
-            <form action="saveParameter.php" method="post">
+        <form action="saveParameter.php" method="post">
 
             <div class="modal-body">
-                <div><p>Education</p><button>Parametrize dependencies</button><input type="input" id="Education_input" value=<?=$data[0]?> name="education_input"><div class ="range"><input type="range" id="Education_range" min = "1" max = "5" step="0.1"  value=<?=$data[0]?>></div></div>
-                <div><p>Food</p><button>Parametrize dependencies</button><input type="input" id="Food_input" value=<?=$data[1]?> name="food_input"><div class ="range"><input type="range" id="Food_range" min = "1" max = "5" step="0.1"value=<?=$data[1]?> ></div></div>
-                <div><p>Governance</p><button>Parametrize dependencies</button><input type="input" id="Governance_input" value=<?=$data[2]?> name="goverance_input"><div class ="range"><input type="range" id="Governance_range" min = "1" max = "5" step="0.1" value=<?=$data[2]?> ></div></div>
-                <div><p>Health</p><button>Parametrize dependencies</button><input type="input" id="Health_input" value=<?=$data[3]?> name="health_input"><div class ="range"><input type="range" id="Health_range" min = "1" max = "5" step="0.1" value=<?=$data[3]?> ></div></div>
-                <div><p>Housing</p><button>Parametrize dependencies</button><input type="input" id="Housing_input" value=<?=$data[4]?> name="housing_input"><div class ="range"><input type="range" id="Housing_range" min = "1" max = "5" step="0.1" value=<?=$data[4]?> ></div></div>
-                <div><p>Leisure</p><button>Parametrize dependencies</button><input type="input" id="Leisure_input" value=<?=$data[5]?> name="leisure_input"><div class ="range"><input type="range" id="Leisure_range" min = "1" max = "5" step="0.1" value=<?=$data[5]?>></div></div>
-                <div><p>Mixed</p><button>Parametrize dependencies</button><input type="input" id="Mixed_input" value=<?=$data[6]?> name="mixed_input"><div class ="range"><input type="range" id="Mixed_range" min = "1" max = "5" step="0.1" value=<?=$data[6]?> ></div></div>
-                <div><p>Religion</p><button>Parametrize dependencies</button><input type="input" id="Religion_input" value=<?=$data[7]?> name="religion_input"><div class ="range"><input type="range" id="Religion_range" min = "1" max = "5" step="0.1" value=<?=$data[7]?> ></div></div>
-                <div><p>Transport</p><button>Parametrize dependencies</button><input type="input" id="Transport_input" value=<?=$data[8]?> name="transport_input"><div class ="range"><input type="range" id="Transport_range" min = "1" max = "5" step="0.1" value=<?=$data[8]?> ></div></div>
-                <div><p>Working</p><button>Parametrize dependencies</button><input type="input" id="Working_input" value=<?=$data[9]?> name="working_input"><div class ="range"><input type="range" id="Working_range" min = "1" max = "5" step="0.1" value=<?=$data[9]?> ></div></div>
+                <?php
+                for($i = 0; $i < $title_num; $i++){
+                ?>
+                <div>
+                    <p><?=$titles[$i]?></p>
+                    <button type="button" data-toggle="modal" data-target="#myModal_<?=$titles[$i]?>">Parametrize dependencies</button>
+                    <input class="input" type="input" id="<?=$titles[$i]?>_input" value="<?=floatval($data[$i][0])?>" name="<?=$titles[$i]?>_input">
+                    <input type="hidden" id="<?=$titles[$i]?>_hidden" value="<?=$hiddens[$i]?>" name="<?=$titles[$i]?>_hidden">
+                    <div class ="range">
+                        <input type="range" id="<?=$titles[$i]?>_range" min = "1" max = "5" step="0.01"  value="<?=floatval($data[$i][0])?>">
+                    </div>
+                </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Back
+                <button type="button" class="btn btn-default">Back
                 </button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Load
+                <button type="button" class="btn btn-default">Load
                 </button>
                 <button type="submit" class="btn btn-primary">
                     Save
                 </button>
             </div>
         </form>
-        </div><!-- /.modal-content -->
+    </div><!-- /.modal-content -->
+
+    <?php
+        for($i = 0; $i < $title_num; $i++){
+    ?>
+
+    <div class="modal fade" id="myModal_<?=$titles[$i]?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button  id="<?=$titles[$i]?>_close" type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+                Parameterize dependencies (<?=$titles[$i]?>)
+            </h4>
+        </div>
+        <div class="modal-body">
+            <?php
+                for($j = 1; $j <= $subTitle_num; $j++){
+                    $subTitles_index = $j - 1;
+            ?>
+            <div>
+                <p><?=$subTitles[$subTitles_index]?></p>
+                <input class="input" type="input" id="<?=$titles[$i]?>_<?=$subTitles[$subTitles_index]?>_input" value="<?=floatval($data[$i][$j])?>" name="">
+                <div class ="range">
+                    <input type="range" id="<?=$titles[$i]?>_<?=$subTitles[$subTitles_index]?>_range" min = "1" max = "5" step="0.01"  value="<?=floatval($data[$i][$j])?>">
+                </div>
+            </div>
+            <?php
+                }
+            ?>
+        </div>
+
+    </div>
+
+    <?php
+        }
+    ?>
+
 </body>
 
 </html>

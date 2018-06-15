@@ -1,6 +1,6 @@
 <?php
 $user = "user1";
-$datas = file("data/userdata/$user/parameterValue.csv");
+$datas = file("data/userdata/$user/parameterValue.csv",FILE_IGNORE_NEW_LINES);
 $data;
 $hiddens;
 $titles = array('Education','Food','Governance','Health','Housing','Leisure','Mixed','Religion','Transport','Working');
@@ -76,10 +76,10 @@ for($i= 0; $i < $title_num; $i++){
                 <div>
                     <p><?=$titles[$i]?></p>
                     <button type="button" data-toggle="modal" data-target="#myModal_<?=$titles[$i]?>">Parametrize dependencies</button>
-                    <input class="input" type="input" id="<?=$titles[$i]?>_input" value="<?=floatval($data[$i][0])?>" name="<?=$titles[$i]?>_input">
+                    <input class="input" type="input" id="<?=$titles[$i]?>_input" value="<?=trim($data[$i][0])?>" name="<?=$titles[$i]?>_input">
                     <input type="hidden" id="<?=$titles[$i]?>_hidden" value="<?=$hiddens[$i]?>" name="<?=$titles[$i]?>_hidden">
                     <div class ="range">
-                        <input type="range" id="<?=$titles[$i]?>_range" min = "1" max = "5" step="0.01"  value="<?=floatval($data[$i][0])?>">
+                        <input type="range" id="<?=$titles[$i]?>_range" min = "1" max = "5" step="0.01"  value="<?=trim($data[$i][0])?>">
                     </div>
                 </div>
                 <?php
@@ -118,9 +118,9 @@ for($i= 0; $i < $title_num; $i++){
             ?>
             <div>
                 <p><?=$subTitles[$subTitles_index]?></p>
-                <input class="input" type="input" id="<?=$titles[$i]?>_<?=$subTitles[$subTitles_index]?>_input" value="<?=floatval($data[$i][$j])?>" name="">
+                <input class="input" type="input" id="<?=$titles[$i]?>_<?=$subTitles[$subTitles_index]?>_input" value="<?=trim($data[$i][$j])?>" name="">
                 <div class ="range">
-                    <input type="range" id="<?=$titles[$i]?>_<?=$subTitles[$subTitles_index]?>_range" min = "1" max = "5" step="0.01"  value="<?=floatval($data[$i][$j])?>">
+                    <input type="range" id="<?=$titles[$i]?>_<?=$subTitles[$subTitles_index]?>_range" min = "1" max = "5" step="0.01"  value="<?=trim($data[$i][$j])?>">
                 </div>
             </div>
             <?php

@@ -89,7 +89,7 @@ for($i= 0; $i < $title_num; $i++){
             <div class="modal-footer">
                 <button type="button" class="btn btn-default">Back
                 </button>
-                <button type="button" class="btn btn-default">Load
+                <button type="button" class="btn btn-default" id="load">Load
                 </button>
                 <button type="submit" class="btn btn-primary">
                     Save
@@ -133,7 +133,7 @@ for($i= 0; $i < $title_num; $i++){
     <?php
         }
     ?>
-
+    <input id = "file_button" type = "file" style="display:none">
 </body>
 
 </html>

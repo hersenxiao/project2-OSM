@@ -8,3 +8,8 @@
 .modal-footer{
 	padding: auto;
 }
+
+.modal{
+	height: 500px;
+	width: 800px;
+}

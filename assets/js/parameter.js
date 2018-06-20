@@ -15,6 +15,9 @@ window.onload = function(){
 	for(var i = 0; i < closeButtons.length; i++ ){
 		closeButtons[i].onclick = saveDependencies;
 	}
+
+	var load_button = document.getElementById("load");
+	load_button.onclick = loadFile;
 }
 
 function setInput(){
@@ -44,4 +47,16 @@ function saveDependencies(){
 	var hidden = document.getElementById(head+"_hidden") ;
 	hidden.value = result;
 	console.log(hidden.value);
+}
+
+function loadFile(){
+	var file_button = document.getElementById("file_button");
+	file_button.click();
+	var file = file_button.files[0];
+	console.log(file);
+	var reader = new FileReader();
+	reader.readAsArrayBuffer(file);
+	reader.onload = function(){
+		console.log(reader.result);
+	}
 }

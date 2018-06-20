@@ -256,19 +256,11 @@
                 <h4 class="modal-title" id="myModalLabel">Load hazard map</h4>
             </div>
             <div class="modal-body">
-              <div class="control-group">
-                 <label class="control-label" for="FileUpload1">Load File</label>
-                 <div class="controls">
-                 <!-- <input class="input-file uniform_on" id="FileUpload1" name="FileUpload1" type="file"> -->
-                 <input type="file" id="file" name="myfile" />
-                 <input type="button" onclick="UpladFile()" value="upload" />
-                 <input type="button" onclick="cancleUploadFile()" value="cancel" />
-
-                 <progress id="progressBar" value="0" max="100" style="width: 300px;"></progress>
-                <span id="percentage"></span><span id="time"></span>
-
-                 </div>
-             </div>
+              <form action="saveHazardMap.php"
+      method="post" enctype="multipart/form-data">
+  			<input type="file" name="avatar" />
+  			<input type="submit" value="Upload"/>
+		</form>
             </div>
 
 </div>

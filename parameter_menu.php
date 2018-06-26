@@ -19,9 +19,6 @@ for($i= 0; $i < $title_num; $i++){
     $hiddens[$i] = $hidden;
 }
 
-
-
-
 ?>
 <!DOCTYPE HTML>
 

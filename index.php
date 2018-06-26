@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$username = "user1";
+?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
     <meta charset="utf-8" />
@@ -42,33 +45,81 @@
                         <a href="#" class="waves-effect waves-dark" onmouseover="GetValueForToolTip(this)"><i class="fa fa-sitemap"></i>Load<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a data-toggle="modal" data-target="#myModal_file" href="#">Load hazard map</a>
+                                <?php
+                                    if(file_exists("./data/userdata/$username/hazardMap.txt")){?>
+                                    <div id="circle"></div>
+                                    <?php } else{?>
+                                    <div id="circle_green"></div>
+                                    <?php } ?>
+                            <a data-toggle="modal" data-target="#myModal_file" href="#">Load hazard map</a>
                             </li>
                             <li>
-                                <a href="#">Load/update Building</a>
+                                 <?php
+                                    if(file_exists("./data/userdata/$username/building.txt")){?>
+                                    <div id="circle"></div>
+                                    <?php } else{?>
+                                    <div id="circle_green"></div>
+                                    <?php } ?>
+                                <a data-toggle="modal" data-target="#myModal_file2" href="#">Load/update Building</a>
                             </li>
                             <li>
                                 <a href="#">Load/update network<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Electricity network</a>
+                                       <?php
+                                       if(file_exists("./data/userdata/$username/electricity.txt")){?>
+                                       <div id="circle"></div>
+                                       <?php } else{?>
+                                       <div id="circle_green"></div>
+                                       <?php } ?>
+                                       <a data-toggle="modal" data-target="#myModal_file3" href="#">Electricity network</a>
                                     </li>
                                     <li>
-                                        <a href="#">Transportation network</a>
+                                       <?php
+                                       if(file_exists("./data/userdata/$username/transportation.txt")){?>
+                                       <div id="circle"></div>
+                                       <?php } else{?>
+                                       <div id="circle_green"></div>
+                                       <?php } ?>
+                                       <a data-toggle="modal" data-target="#myModal_file4" href="#">Transportation network</a>
                                     </li>
                                     <li>
-                                        <a href="#">Communication network</a>
+                                       <?php
+                                       if(file_exists("./data/userdata/$username/communication.txt")){?>
+                                       <div id="circle"></div>
+                                       <?php } else{?>
+                                       <div id="circle_green"></div>
+                                       <?php } ?>
+                                       <a data-toggle="modal" data-target="#myModal_file5" href="#">Communication network</a>
                                     </li>
                                     <li>
-                                        <a href="#">Water supply</a>
+                                       <?php
+                                       if(file_exists("./data/userdata/$username/water.txt")){?>
+                                       <div id="circle"></div>
+                                       <?php } else{?>
+                                       <div id="circle_green"></div>
+                                       <?php } ?>
+                                       <a data-toggle="modal" data-target="#myModal_file6" href="#">Water supply</a>
                                     </li>
                                     <li>
-                                        <a href="#">Other network</a>
+                                       <?php
+                                       if(file_exists("./data/userdata/$username/other.txt")){?>
+                                       <div id="circle"></div>
+                                       <?php } else{?>
+                                       <div id="circle_green"></div>
+                                       <?php } ?>
+                                       <a data-toggle="modal" data-target="#myModal_file7" href="#">Other network</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Load critical infrastructure & social event</a>
+                                       <?php
+                                       if(file_exists("./data/userdata/$username/critical.txt")){?>
+                                       <div id="circle"></div>
+                                       <?php } else{?>
+                                       <div id="circle_green"></div>
+                                       <?php } ?>
+                                       <a data-toggle="modal" data-target="#myModal_file8" href="#">Load critical infrastructure & social event</a>
                             </li>
                         </ul>
                     </li>
@@ -104,8 +155,7 @@
             		</div>
             		<div class="line"><div id="orange" class="rectangle"></div><div class="number_line">2-3</div></div>
             		<div class="line"><div id="yellow" class="rectangle"></div><div class="number_line">3-4</div></div>
-            		<div class="line"><div id="light_yellow" class="rectangle"></div><div class="number_line">4-5</div></div>
-            		<div class="line"><div id="green" class="rectangle"></div><div class="number_line">5-6</div></div> 
+            		<div class="line"><div id="green" class="rectangle"></div><div class="number_line">4-5</div></div>
                     </div>        		
             	</div>
             </div>
@@ -118,13 +168,13 @@
     <!-- JS Scripts-->
     <!-- jQuery Js -->
         <script type="text/javascript">
-           var m_center = [8.9530046,44.401327];
+           var m_center = [9.359833743730864,42.57838326353453];
       m_center = ol.proj.transform(m_center,'EPSG:4326','EPSG:3857');
       var projection = ol.proj.get('EPSG:3857');
 
       var vector = new ol.layer.Vector({
         source: new ol.source.Vector({
-          url: 'data/kml/doc.kml',
+          url: 'data/kml/doc1.kml',
           format: new ol.format.KML()
         })
       });
@@ -249,21 +299,122 @@
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script> 
 
-<div class="modal fade" id="myModal_file" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal_file" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Load hazard map</h4>
-            </div>
-            <div class="modal-body">
-              <form action="saveHazardMap.php"
-      method="post" enctype="multipart/form-data">
-  			<input type="file" name="avatar" />
-  			<input type="submit" value="Upload"/>
-		</form>
-            </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load hazard map</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveHazardMap.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
 
-</div>
+    </div>
+
+    <div class="modal fade" id="myModal_file2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load/update Building</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveBuilding.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal_file3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load Electricity network</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveElectricity.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal_file4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load Transportation network</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveTransportation.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal_file5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load Communication network</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveCommunication.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal_file6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load Water supply</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveWater.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal_file7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load Other network</h4>
+        </div>
+        <div class="modal-body">
+          <form action="saveOthernetwork.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal_file8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Load critical infrastructure & social event</h4>
+        </div>
+        <div class="modal-body">
+          <form action="savecritical.php"
+          method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+          <input type="submit" value="Upload"/>
+         </form>
+        </div>
+    </div>
 </body>
 
 </html>

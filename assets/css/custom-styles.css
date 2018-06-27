@@ -97,6 +97,10 @@ body {
   height: 240px;
   width: 700px;
 }
+.modal{
+  height: 240px;
+  width: 700px;
+}
 
 #myModal{
   height: 900px;

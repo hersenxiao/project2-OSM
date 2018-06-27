@@ -16,6 +16,12 @@ window.onload = function(){
 		closeButtons[i].onclick = saveDependencies;
 	}
 
+	var okButtons = document.querySelectorAll(".dependencies_ok");
+	console.log(okButtons);
+	for(var i = 0; i < okButtons.length; i++ ){
+		okButtons[i].onclick = saveDependencies_Ok_button;
+	}
+
 	var load_button = document.getElementById("load");
 	load_button.onclick = loadFile;
 }
@@ -49,14 +55,23 @@ function saveDependencies(){
 	console.log(hidden.value);
 }
 
+function saveDependencies_Ok_button(){
+	var id = this.id;
+	var head = this.id.substr(0,this.id.length-10);
+	var Energy = document.getElementById(head+"_Energy_range").value;
+	var Water = document.getElementById(head+"_Water_range").value;
+	var Communication = document.getElementById(head+"_Communication_range").value;
+	var Transport = document.getElementById(head+"_Transport_range").value;
+	var Special = document.getElementById(head+"_Special_range").value;
+	var result = "," + Energy + "," + Water + "," + Communication + "," + Transport + "," + Special;
+	var hidden = document.getElementById(head+"_hidden") ;
+	hidden.value = result;
+	console.log(hidden.value);
+}
+
 function loadFile(){
 	var file_button = document.getElementById("file_button");
+	var upload_button = document.getElementById("upload_button");
 	file_button.click();
-	var file = file_button.files[0];
-	console.log(file);
-	var reader = new FileReader();
-	reader.readAsArrayBuffer(file);
-	reader.onload = function(){
-		console.log(reader.result);
-	}
+	upload_button.click();
 }

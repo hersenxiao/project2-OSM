@@ -34,7 +34,8 @@ $username = "user1";
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
         <img id = "logo" src="assets/img/LogoPolytechLab.png"  alt="logo" />
-		<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+		    <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+        <h1 id = "title_name">Operational Resilience Index computing tool</h1>
         </nav>
 
 	   <!--/. NAV TOP  -->
@@ -42,7 +43,7 @@ $username = "user1";
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a href="#" class="waves-effect waves-dark" onmouseover="GetValueForToolTip(this)"><i class="fa fa-sitemap"></i>Load<span class="fa arrow"></span></a>
+                        <a href="#" class="waves-effect waves-dark" onmouseover="GetValueForToolTip(this)"><i class="fa fa-sitemap"></i><span class = "name_menu">Load</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <?php
@@ -51,7 +52,7 @@ $username = "user1";
                                     <?php } else{?>
                                     <div id="circle_green"></div>
                                     <?php } ?>
-                            <a data-toggle="modal" data-target="#myModal_file" href="#">Load hazard map</a>
+                            <a data-toggle="modal" data-target="#myModal_file" href="#"><span class = "name_menu">Load hazard map</span></a>
                             </li>
                             <li>
                                  <?php
@@ -60,10 +61,10 @@ $username = "user1";
                                     <?php } else{?>
                                     <div id="circle_green"></div>
                                     <?php } ?>
-                                <a data-toggle="modal" data-target="#myModal_file2" href="#">Load/update Building</a>
+                                <a data-toggle="modal" data-target="#myModal_file2" href="#"><span class = "name_menu">Load/update Building</span></a>
                             </li>
                             <li>
-                                <a href="#">Load/update network<span class="fa arrow"></span></a>
+                                <a href="#"><span class = "name_menu">Load/update network</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
                                        <?php
@@ -72,7 +73,7 @@ $username = "user1";
                                        <?php } else{?>
                                        <div id="circle_green"></div>
                                        <?php } ?>
-                                       <a data-toggle="modal" data-target="#myModal_file3" href="#">Electricity network</a>
+                                       <a data-toggle="modal" data-target="#myModal_file3" href="#"><span class = "name_menu">Electricity network</span></a>
                                     </li>
                                     <li>
                                        <?php
@@ -81,7 +82,7 @@ $username = "user1";
                                        <?php } else{?>
                                        <div id="circle_green"></div>
                                        <?php } ?>
-                                       <a data-toggle="modal" data-target="#myModal_file4" href="#">Transportation network</a>
+                                       <a data-toggle="modal" data-target="#myModal_file4" href="#"><span class = "name_menu">Transportation network</span></a>
                                     </li>
                                     <li>
                                        <?php
@@ -90,7 +91,7 @@ $username = "user1";
                                        <?php } else{?>
                                        <div id="circle_green"></div>
                                        <?php } ?>
-                                       <a data-toggle="modal" data-target="#myModal_file5" href="#">Communication network</a>
+                                       <a data-toggle="modal" data-target="#myModal_file5" href="#"><span class = "name_menu">Communication network</span></a>
                                     </li>
                                     <li>
                                        <?php
@@ -99,7 +100,7 @@ $username = "user1";
                                        <?php } else{?>
                                        <div id="circle_green"></div>
                                        <?php } ?>
-                                       <a data-toggle="modal" data-target="#myModal_file6" href="#">Water supply</a>
+                                       <a data-toggle="modal" data-target="#myModal_file6" href="#"><span class = "name_menu">Water supply</span></a>
                                     </li>
                                     <li>
                                        <?php
@@ -108,7 +109,7 @@ $username = "user1";
                                        <?php } else{?>
                                        <div id="circle_green"></div>
                                        <?php } ?>
-                                       <a data-toggle="modal" data-target="#myModal_file7" href="#">Other network</a>
+                                       <a data-toggle="modal" data-target="#myModal_file7" href="#"><span class = "name_menu">Other network</span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -119,24 +120,24 @@ $username = "user1";
                                        <?php } else{?>
                                        <div id="circle_green"></div>
                                        <?php } ?>
-                                       <a data-toggle="modal" data-target="#myModal_file8" href="#">Load critical infrastructure & social event</a>
+                                       <a data-toggle="modal" data-target="#myModal_file8" href="#"><span class = "name_menu">Load critical infrastructure & social event</span></a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a class=" waves-effect waves-dark" href="#" title = "Social and time component"><i class="fa fa-dashboard"></i>Social and time component</a>
+                        <a class=" waves-effect waves-dark" href="#" title = "Social and time component"><i class="fa fa-dashboard"></i><span class = "name_menu">Social and time component</span></a>
                     </li>
                     <li>
-                        <a href="parameter_menu.php" class="waves-effect waves-dark"  title = "Parameterize ORI computation"><i class="fa fa-qrcode"></i>Parameterize ORI computation</a>
+                        <a href="parameter_menu.php" class="waves-effect waves-dark"  title = "Parameterize ORI computation"><i class="fa fa-qrcode"></i><span class = "name_menu">Parameterize ORI computation</span></a>
                     </li> 
                     <li>
-                        <a href="#" class="waves-effect waves-dark" title = "Compute ORI" onclick="computeORI()"><i class="fa fa-desktop" ></i>Compute ORI</a>
+                        <a href="#" class="waves-effect waves-dark" title = "Compute ORI" onclick="computeORI()"><i class="fa fa-desktop" ></i><span class = "name_menu">Compute ORI</span></a>
                     </li>
 					<li>
-                        <a href="#" class="waves-effect waves-dark"  title = "Export ORI"><i class="fa fa-bar-chart-o"></i>Export ORI</a>
+                        <a href="#" class="waves-effect waves-dark"  title = "Export ORI"><i class="fa fa-bar-chart-o"></i><span class = "name_menu">Export ORI</span></a>
                     </li>                   
                     <li>
-                        <a href="#" class="waves-effect waves-dark"  title = "Scale ORI"><i class="fa fa-table"></i>Scale ORI</a>
+                        <a href="#" class="waves-effect waves-dark"  title = "Scale ORI"><i class="fa fa-table"></i><span class = "name_menu">Scale ORI</span></a>
                     </li>
                 </ul>
 

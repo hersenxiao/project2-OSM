@@ -84,8 +84,7 @@ for($i= 0; $i < $title_num; $i++){
                 ?>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default">Back
-                </button>
+                <a href="http://127.0.0.1/edsa-Project%20from%20GitHub/project2-OSM/"><button type="button" class="btn btn-default">Back</button></a>
                 <button type="button" class="btn btn-default" id="load">Load
                 </button>
                 <button type="submit" class="btn btn-primary">
@@ -124,7 +123,9 @@ for($i= 0; $i < $title_num; $i++){
                 }
             ?>
         </div>
-
+         <div class="modal-footer">
+               <div id = "dependencies_ok"><button type="button" class="btn btn-primary" data-dismiss="modal">ok</button></div> 
+        </div>
     </div>
 
     <?php

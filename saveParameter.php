@@ -11,5 +11,5 @@
 	$result .= $_POST["Working_input"].$_POST["Working_hidden"];
 
 	file_put_contents("data/userdata/user1/parameterValue.csv",$result);
-	header("Location: index.php");
+	header("Location: parameter_menu.php");
 ?>

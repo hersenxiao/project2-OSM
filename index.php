@@ -169,13 +169,13 @@ $username = "user1";
     <!-- JS Scripts-->
     <!-- jQuery Js -->
         <script type="text/javascript">
-           var m_center = [9.359833743730864,42.57838326353453];
+           var m_center = [8.9530046,44.401327];
       m_center = ol.proj.transform(m_center,'EPSG:4326','EPSG:3857');
       var projection = ol.proj.get('EPSG:3857');
 
       var vector = new ol.layer.Vector({
         source: new ol.source.Vector({
-          url: 'data/kml/doc1.kml',
+          url: 'data/kml/doc.kml',
           format: new ol.format.KML()
         })
       });

@@ -1,10 +1,14 @@
 <?php
+//To get the username, here just for testing, we set it as “user1”, in the future we should get the username for the session.
 $user = "user1";
 $datas = file("data/userdata/$user/parameterValue.csv",FILE_IGNORE_NEW_LINES);
+//The initial data are saved in the two-dimension array $data. $data[$i][0] is the value of the (i+1)th title, $data[$i][$j] is the value of the (i+1)th title’s jth subtitle.
 $data;
+//hiddens is used to save the values in the “Parametrize Dependencies” Modal dialog.
 $hiddens;
+//The array $titles is used to save the titles
 $titles = array('Education','Food','Governance','Health','Housing','Leisure','Mixed','Religion','Transport','Working');
-
+//The array $subTitles is used to save the subtitles
 $subTitles = array('Energy','Water','Communication','Transport','Special');
 
 $title_num = count($titles);
@@ -131,6 +135,8 @@ for($i= 0; $i < $title_num; $i++){
     <?php
         }
     ?>
+
+    <!-- Bootstrap Modal Dialog for the load button -->
     <div class="modal fade" id="myModal_file" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

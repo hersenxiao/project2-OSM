@@ -169,8 +169,11 @@ $username = "user1";
     <!-- JS Scripts-->
     <!-- jQuery Js -->
         <script type="text/javascript">
+          //to set the center position
            var m_center = [8.9530046,44.401327];
+           //to transform the center position form standard EPSG:4326 to standard EPSG:3857
       m_center = ol.proj.transform(m_center,'EPSG:4326','EPSG:3857');
+      //to set the projection standard as EPSG:3857
       var projection = ol.proj.get('EPSG:3857');
 
       var vector = new ol.layer.Vector({
@@ -179,7 +182,7 @@ $username = "user1";
           format: new ol.format.KML()
         })
       });
-
+      //to display the map in the div “map” and set the zoom level as 16.
       var map = new ol.Map({
         layers: [new ol.layer.Tile({
             source: new ol.source.OSM()

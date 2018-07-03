@@ -68,10 +68,3 @@ function saveDependencies_Ok_button(){
 	hidden.value = result;
 	console.log(hidden.value);
 }
-
-function loadFile(){
-	var file_button = document.getElementById("file_button");
-	var upload_button = document.getElementById("upload_button");
-	file_button.click();
-	upload_button.click();
-}
